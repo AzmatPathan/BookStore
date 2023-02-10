@@ -1,0 +1,20 @@
+extends layout 
+
+
+block main-content 
+    h2.page-title Books
+    ul.cards
+        each link in menu 
+            li.cards__item
+
+                .card__image
+                    img(src= link.imageLink height='200px' width='200px').img
+                .card__content
+                    .card__title  #{link.title}
+                    p.card__text Language-#{link.language} 
+                    p.card__text Author-#{link.author} 
+                    form(action="/order")
+                        input(type="hidden", name="linkId", value=link._id)
+                        button.btn.btn--block.card__btn(type="submit") Order Now
+                    
+

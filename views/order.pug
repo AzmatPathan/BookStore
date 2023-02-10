@@ -1,0 +1,18 @@
+extends layout 
+
+block main-content 
+        h2 #{order.title}
+        img.center(src= order.imageLink ).img
+        h3.center Language- #{order.language} 
+
+        .checkout
+        h2  Checkout
+        form.checkout-form
+            input(placeholder='Card number' type='text')
+            input(placeholder='Name on card' type='text')
+            .half
+            input(placeholder='MM/YY' type='text')
+            input(placeholder='CVC' type='text')
+            button(type='submit') Pay Now
+                    
+                    
