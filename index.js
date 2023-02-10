@@ -4,9 +4,10 @@ const path = require("path")
 const { MongoClient, ObjectId } = require("mongodb");
 
 
-//Mongo config stuff
-const dbUrl = "mongodb://127.0.0.1:27017";
-const client = new MongoClient(dbUrl);
+//Mongo config stuffs
+// const dbUrl = "mongodb://127.0.0.1:27017";
+const uri = "mongodb+srv://testdbuser:testdbuser@cluster0.bqwgbru.mongodb.net/appdb?retryWrites=true&w=majority";
+const client = new MongoClient(uri);
 
 
 //set up express app and port number
@@ -45,7 +46,7 @@ app.get("/order", async (request, response) => {
     editLinkData = await getSingleLink(request.query.linkId);
     console.log(editLinkData)
 
-    response.render("order", { title: "Checkout", order: editLinkData});
+    response.render("order", { title: "Checkout", order: editLinkData });
 });
 
 
